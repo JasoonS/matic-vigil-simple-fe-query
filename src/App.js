@@ -11,23 +11,17 @@ function getLibrary(provider) {
 }
 
 const ExampleApp = () => {
-  const {
-    activate,
-    active,
-    // connector,
-    // library,
-    // chainId,
-    // account,
-    // deactivate,
-    // error,
-  } = useWeb3React();
+  const { activate, active } = useWeb3React();
 
   useMemo(() => {
     console.log("Activating");
     activate(
       new NetworkConnector({
         urls: {
-          80001: "https://ztjv2.csb.app",
+          // 80001: "https://rpc-mumbai.matic.today",
+          80001:
+            "https://rpc-mumbai.maticvigil.com/v1/" +
+            process.env.REACT_APP_MATICVIGIL_API_TOKEN,
         },
         defaultChainId: 80001,
         pollingInterval: 8000,
